@@ -7,9 +7,10 @@ RUN apk add --update \
 # Get feedo from git
 RUN git clone 'git@github.com:Roliga/feedo.git'
 
-# TODO: Add volume for config file
+# Install startup script
+COPY "run-feedo.sh" "/run-feedo.sh"
 
 # Service runs on port 80, so expose that
 EXPOSE 80
 
-CMD [ "/feedo/feedo.py" ]
+CMD [ "/run-feedo.sh" ]
