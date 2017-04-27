@@ -2,10 +2,15 @@ FROM alpine:latest
 
 # Install dependencies
 RUN apk add --update \
-	git python
+	git python3 py3-requests
 
-# Get feedo from git
-RUN git clone 'git@github.com:Roliga/feedo.git'
+# Install feedgenerator dependency
+RUN git clone 'https://github.com/getpelican/feedgenerator.git' && \
+	cd feedgenerator && \
+	python3 ./setup.py install --optimize=1
+
+# Install feedo from git
+RUN git clone 'https://github.com/Roliga/feedo.git'
 
 # Install startup script
 COPY "run-feedo.sh" "/run-feedo.sh"
