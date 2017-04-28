@@ -15,4 +15,4 @@ if [ -z "$LOCATION" ]; then
 	fi
 fi
 
-exec python3 /feedo/feedo.py --host="$HOSTNAME" --location="$LOCATION" --port=80 --plugins='/feedo/plugins'
+exec python3 /feedo/feedo.py --host="$HOSTNAME" --location="$LOCATION" --port=80 --directory='/feedo'
