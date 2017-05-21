@@ -2,7 +2,7 @@ FROM alpine:latest
 
 # Install dependencies
 RUN apk add --update \
-	git python3 py3-requests
+	git python3 py3-requests py3-lxml
 
 # Install feedgenerator dependency
 RUN git clone 'https://github.com/getpelican/feedgenerator.git' && \
